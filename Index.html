@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-tasks"></i> Task Manager</h1>
+            <p class="subtitle">Stay organized and productive</p>
+        </header>
+
+        <div class="todo-container">
+            <div class="input-section">
+                <div class="input-group">
+                    <input type="text" id="taskInput" placeholder="What needs to be done?" autocomplete="off">
+                    <select id="prioritySelect">
+                        <option value="low">Low Priority</option>
+                        <option value="medium" selected>Medium Priority</option>
+                        <option value="high">High Priority</option>
+                    </select>
+                    <button id="addBtn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Task
+                    </button>
+                </div>
+            </div>
+
+            <div class="filters-section">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Tasks</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+                <div class="priority-filters">
+                    <button class="priority-filter" data-priority="all">All</button>
+                    <button class="priority-filter" data-priority="high">High</button>
+                    <button class="priority-filter" data-priority="medium">Medium</button>
+                    <button class="priority-filter" data-priority="low">Low</button>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <div class="stats">
+                    <span class="stat-item">
+                        <i class="fas fa-list"></i>
+                        Total: <span id="totalTasks">0</span>
+                    </span>
+                    <span class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        Active: <span id="activeTasks">0</span>
+                    </span>
+                    <span class="stat-item">
+                        <i class="fas fa-check-circle"></i>
+                        Completed: <span id="completedTasks">0</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="tasks-section">
+                <ul id="taskList" class="task-list"></ul>
+                <div id="emptyState" class="empty-state">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>No tasks yet</h3>
+                    <p>Add a task above to get started!</p>
+                </div>
+            </div>
+
+            <div class="actions-section">
+                <button id="clearCompleted" class="btn btn-secondary">
+                    <i class="fas fa-trash"></i> Clear Completed
+                </button>
+                <button id="clearAll" class="btn btn-danger">
+                    <i class="fas fa-trash-alt"></i> Clear All
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
